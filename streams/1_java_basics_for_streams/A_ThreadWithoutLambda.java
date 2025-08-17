@@ -1,3 +1,4 @@
+package java_basics_for_streams;
 // package streams;
 
 public class A_ThreadWithoutLambda {
