@@ -1,4 +1,4 @@
-// package 2_stream_main;
+// package stream.2_stream_main;
 
 import java.util.Arrays;
 import java.util.List;

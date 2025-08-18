@@ -21,8 +21,41 @@
         - sorted()
         - distinct()
         - limit()
-        - skip() 
+        - skip()
+        - peek()
+            - **similar to forEach: performs an action on each element as it flows through the stream pipeline without modifying the elements themselves.**
+            - **useful for debugging flow at any step in stream pipeline.**
+        - flatMap()
+            - Handles stream of collections, lists, or arrays where each element is itself a collection, list or arrays
+            - it flattens the nested structure (e.g, list of lists) so that they can be processed as single sequence of elements.
+            - So overall it transforms and flatten elements at the same time.
 3. Terminal Operation
+    - Common terminal operations are:
+        - collect()
+        - forEach()
+        - forEachOrdered
+            - useful in parallel stream when we want to process the elements in their original order (since in parallel stream there is no order)
+        - reduce()
+        - count()
+        - anyMatch(), allMatch(), noneMatch()
+        - findFirst(), findAny()
+        - toArray()
+        - min(), max()
+
+### Stateful and Stateless Stream Operations
+1. Stateless Operations
+    - These operations process each element independently without requiring any knowledge of other elements in the stream or maintaining internal state across elements.
+    - Characterstics:
+        - They are highly efficient, especially in parallel streams, as each element can be processed in isolation without needing to synchronize or buffer data.
+        - They do not require multiple pass over the data.
+    - e.g., filter(), map(), forEach()
+2. Stateful Operations
+    - These operations require retaining information about previously processed elements or the entire stream to produce a result for the current element.
+    - They maintain an internal state that changes as elements are processed.
+    - Characterstics:
+        - They can be less efficient in parallel streams, as they may require buffering data or multiple passes to ensure correct results.
+        - They might need to process the entire input before producing any result.
+    - e.g., distinct(), sorted(), reduce(), limit(), skip()
 
 ### How to create a stream?
 1. From Java Collections
@@ -53,3 +86,13 @@
     Stream<Integer> streamIterate = Stream.iterate(0, x -> x + 1);
     Stream<Integer> streamIterateLimit = Stream.iterate(0, x -> x + 1).limit(10);
     ```
+
+### Parallel Stream
+    - A type of stream that enables parallel processing of elements
+    - Allowing multiple threads to process parts of the stream simulataneously.
+    - This can significantly improve performance for large datasets.
+    - Characterstics:
+        - Most effective for CPU-intensive or for large datasets where tasks are independent.
+        - May add overhead for simple tasks or small datasets.
+
+**IMPORTANT NOTE: Stream cannot be used after a termninal operation has been performed.**

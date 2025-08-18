@@ -1,4 +1,4 @@
-// package 2_stream_main;
+// package stream.2_stream_main;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +30,46 @@ public class C_IntermediateOperations {
         Stream<Integer> infiniteStream = Stream.iterate(1, x -> x +1);
         Stream<Integer> first100NumsStream = Stream.iterate(1, x -> x + 1).limit(100);
 
-        // 6. skip
+        // 6. skip()
         Stream<Integer> skipFirst10NumsStream = Stream.iterate(1, x -> x + 1).skip(10).limit(100);
+
+        // 7. peek()
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Aaron");
+        // use peek() to observe elements at different stages of stream
+        List<String> processedNames = names.stream()
+            .peek(x -> System.out.println("Original: " + x))
+            .filter(x -> x.startsWith("A"))
+            .peek(x -> System.out.println("Filtered: " + x))
+            .map(String::toUpperCase)
+            .peek(x -> System.out.println("Processed: " + x))
+            .toList();
+        
+        System.out.println("Final processed list: " + processedNames);
+
+        // 8. flatMap()
+        // example 1
+        List<List<String>> listOfLists = Arrays.asList(
+            Arrays.asList("Apple", "Banana"),
+            Arrays.asList("Pear", "Tomato"),
+            Arrays.asList("Kiwi", "Grape", "Orange")
+        );
+        List<String> flattenListOfLists = listOfLists.stream()
+            .flatMap(x -> x.stream())
+            .map(x -> x.toUpperCase())
+            .toList();
+        System.out.println("Flatten out list: " + flattenListOfLists);
+
+        // example 2
+        List<String> sentencesList = Arrays.asList(
+            "Hello World",
+            "Java Streams Are Powerful",
+            "flatMap() Is Useful"
+        );
+        // separate each word
+        List<String> sentencesFlattenList = sentencesList.stream()
+            .flatMap(x -> Arrays.stream(x.split(" ")))
+            .map(String::toUpperCase)
+            .toList();
+        System.out.println("Flattened setences with all upperCase: " + sentencesFlattenList);
     }
 }
