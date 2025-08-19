@@ -2,7 +2,7 @@
 
 ## Video reference link:
 https://www.youtube.com/watch?v=E10Q6-nWO9g
-@ 58.06
+@ 1.54.37
 ### Java 8 introduced
 - concept of minimal code
 - addition of functional programming features

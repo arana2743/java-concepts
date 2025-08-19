@@ -96,3 +96,23 @@
         - May add overhead for simple tasks or small datasets.
 
 **IMPORTANT NOTE: Stream cannot be used after a termninal operation has been performed.**
+
+### Collectors
+    - Collectors is a utility class in Stream.
+    - Provides a set of methods to create commong collectors.
+    - Some Collectors utility methods are:
+        - toList() -> Collecting to a list.
+        - toSet() -> Collecting to a set.
+        - toCollection() -> Collecting to a specified Collection
+        - joining() -> Collecting to join into a single string
+        - summarizingInt(), summarizingDouble(), summarizingLong()
+            - Collecting to summarize data
+            - basically generating statistical data (count, sum, average, min, max)
+        - averagingInt() -> Collecting to the average of stream
+        - counting() -> Collecting to count of elements of stream
+        - summingInt() -> Collecting to sum of stream
+        - groupingBy() -> Collecting to grouped elements
+        - partitioningBy() -> Collecting to two partitions (true or false) based on predicate
+        - mapping() -> Mapping and Collecting (applies a mapping function before collecting)
+        - toMap() -> Collecting to a map with key,value
+            - has also a signature with `merge` which allows some processing for merging two same keys
