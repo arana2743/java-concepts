@@ -116,3 +116,6 @@
         - mapping() -> Mapping and Collecting (applies a mapping function before collecting)
         - toMap() -> Collecting to a map with key,value
             - has also a signature with `merge` which allows some processing for merging two same keys
+
+### Primitive Stream
+    - 
