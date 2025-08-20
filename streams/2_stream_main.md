@@ -118,4 +118,4 @@
             - has also a signature with `merge` which allows some processing for merging two same keys
 
 ### Primitive Stream
-    - 
+    - Primitive steams are relevant for creating streams from primtive datatypes.
