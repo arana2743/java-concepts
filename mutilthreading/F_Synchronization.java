@@ -1,3 +1,5 @@
+// package mutilthreading;
+
 public class F_Synchronization {
     public static void main(String[] args) {
         Counter counter = new Counter();

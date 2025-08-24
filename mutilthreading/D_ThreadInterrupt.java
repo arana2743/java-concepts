@@ -1,3 +1,5 @@
+// package mutilthreading;
+
 public class D_ThreadInterrupt {
     public static void main(String[] args) {
         Worker w1 = new Worker();
