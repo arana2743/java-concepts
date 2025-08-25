@@ -100,3 +100,26 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
     - fairness options,
     - condition objects for thread signaling
 - A `hold count` tracks the number of times a thread acquired the lock, and it is only fully released when this count reaches zero.
+
+### Fairness of Locks
+- In Java concurrency utilities, specifically with `ReentrantLock`: 
+    - Fairness of locks refers to policy by which waiting threads acquire lock.
+- Fair Lock:
+    - A fair lock ensures that threads acquire the lock in the order they requested it, following a First-in, First-out (FIFO) principle.
+    - This means the thread that has been waiting the longest will be granted the lock next, preventing "**starvation**" - where a thread might repeatedly lose out on acquiring the lock to other, newer threads.
+    - Fairness is typically achieved by maintaining a queue of waiting threads and granting the lock to the head of the queue.
+- UnFair Lock:
+    - This is the default behaviour of `ReentrantLock` if not specified, does not guarantee any particular order of lock acquisition among waiting threads.
+    - A newnly arrived thread might "jump the queue" and acquire the lock before the thread that has been waiting longer.
+    - Unfair locks offer better performance than fair locks because they involve less overhead in maintaining the order of waiting threads.
+- Unfair VS Fair Locks:
+    - Peformance:
+        - Fair locks can introduce performance overheads due to the need to maintain and manage the waiting queue.
+    - Starvation:
+        - Fair locks can prevent starvation, ensuring all waiting threads get a chance to execute.
+
+### Disadvantages of Synchronized (Intinsic locks)
+- Fairness
+- Blocking (Deadlocks can occur)
+- Interruptibility
+- Read/Write Locking (synchronized doesn't know which is read-lock and which is write-lock)
