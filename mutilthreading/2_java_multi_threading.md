@@ -123,3 +123,7 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
 - Blocking (Deadlocks can occur)
 - Interruptibility
 - Read/Write Locking (synchronized doesn't know which is read-lock and which is write-lock)
+
+### ReadWrite Lock
+- Allows multiple threads to read concurrently of resources as long as no thread is writing to the same resources.
+- It ensures exclusive acccess for write operations.
