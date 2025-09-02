@@ -127,3 +127,16 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
 ### ReadWrite Lock
 - Allows multiple threads to read concurrently of resources as long as no thread is writing to the same resources.
 - It ensures exclusive acccess for write operations.
+
+### Deadlocks
+- Deadlock is a situation in multithreading where two or more threads are blocked forever, waiting for each other to release a resource.
+- This typically occurs when two or more threads have a circular dependencies on a set of locks.
+- Deadlock typically occurs when four conditions are met simultaneously:
+    - Mutual Exclusion:
+        - Only one thread can access a resource at a time.
+    - Hold and Wait:
+        - A thread holding at least one resource is waiting to acquire additional resources held by other threads.
+    - No Preemption:
+        - Resources cannot be forcibly taken from threads holding them.
+    - Circular Wait:
+        - A set of threads waiting for each other in a circular chain.
