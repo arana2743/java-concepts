@@ -140,3 +140,13 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
         - Resources cannot be forcibly taken from threads holding them.
     - Circular Wait:
         - A set of threads waiting for each other in a circular chain.
+
+### Thread Communication
+- In a multithreaded environment, threads often need to communicate and coordinate with each other to accomplish a task.
+- And without proper communication mechanisms, threads might end up in inefficient busy-waiting states, leading to wastage of CPU resources and potential deadlocks.
+- methods used in java for inter-thread communication:
+    - wait() => notifies currentThread to release lock and wait until another thread calls notify or notifyAll.
+    - notify() => wakes up a single thread that is waiting.
+    - notifyAll() => wakes up all threads that are waiting.
+- above methods can only be called in a **synchronized context**.
+
