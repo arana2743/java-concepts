@@ -150,3 +150,11 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
     - notifyAll() => wakes up all threads that are waiting.
 - above methods can only be called in a **synchronized context**.
 
+### Thread Safety
+- Thread Safe
+    - An object or method or code-block is thread-safe when:
+        - it guarantees that un-expected result will never occur nor will there by any race-condition when multiple threads are trying to access it.
+
+### Threads with lambda expressions
+- Threads can also be used with help of lambda expressions to reduce boilerplate code.
+- we can use lambda expression to override run method of Runnable interface(since it's a functional interface).
