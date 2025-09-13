@@ -158,3 +158,65 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
 ### Threads with lambda expressions
 - Threads can also be used with help of lambda expressions to reduce boilerplate code.
 - we can use lambda expression to override run method of Runnable interface(since it's a functional interface).
+
+
+### Thread Pool
+- Thread pooling is collection of pre-initialized threads that are ready to perform a task.
+- Why?
+    - Resource management
+        - creating and destroying a thread each time for a task can be expensive.
+    - Response time
+        - gives better response time for each task since threads are already pre-initialized.
+    - Control over thread count
+        - allows to limit the number of threads that can run at a time for better memory and resource managment.
+- In Java, thread pool is creatd using **Executors Framework**.
+- About Executors Framework
+    - part of `java.util.concurrent` package.
+    - simplify the development of concurrent applications by abstracting away many of the complexities involved in creating and managing threads.
+    - below are extra handling that Executors Framework provides:
+        - Manual Thread Managment
+        - Resource Management
+        - Scalability 
+        - Thread Reuse
+        - Error Handling
+- Executor framework implementation
+    - has 3 core interfaces:
+        - Executor
+        - ExecutorService
+        - ScheduledExecutorService
+- ExecutorService some methods:
+    - submit(Runnable task)
+    - submit (Callable task)
+    - submit(Runnable r, T result)
+    - shutdown()
+    - shutdownNow()
+    - awaitTermination()
+    - isShutdown()
+    - isTerminated()
+    - invokeAll()
+        - takes collection of callables and executes them and waits for their completion.
+        - stores the result in list of Futures
+    - invokeAny()
+        - takes collection of callables and executes them and waits for any one of task to complete
+        - it only returns the result of any 1 task that completes first.
+- Future some methods:
+    - get()
+    - isDone()
+    - isCancelled()
+    - get(time)
+    - cancel() ==> to cancel a task
+- ScheduledExecutorService some methods:
+    - schedule(Runnable task)
+    - schedule(Callable task)
+    - scheduleAtFixedRate(Runnable task, initialDelay, period, TimeUnit)
+    - scheduleWithFixedDelay(Runnable task, initialDelay, delay, TimeUnit)
+- Types of thread pool that can be created:
+    - Threadpool is created with built in **Executors** class in concurrent package
+    - used below implementations:
+        - newFixedThreadPool(corePoolSize) => created thread pool of passed size.
+        - newSingleThreadExecutor() => creates a single thread pool
+        - newScheduledThreadPool(corePoolSize) => creates a scheduled thread pool of passed size.
+        - newCachedThreadPool() => creates a thread pool that creats threads as per needed and terminates threads after a certain timeout (60 seconds) when not in use.
+
+https://www.youtube.com/watch?v=4aYvLz4E1Ts
+@ 3.15.07
