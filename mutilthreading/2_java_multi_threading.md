@@ -222,3 +222,7 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
 - So Executor framework in Java doesn't have any method which will allow the main thread to wait for all executors to complete
 - CountDownLatch helps to solve this problem.
 - **Note**: Once the countDownLatch count reaches zero it cannot be reset. Therefore same countDownLatch object cannot be used again.
+
+### CyclicBarrier
+- Unlike CountDownLatch, CyclicBarrier can be reused. Once all threads have reached the barrier and are released, the barrier resets, allowing for subsequent synchronization points in a multi-stage process.
+- CyclicBarrier in Java is a synchronization aid that allows a set of threads to wait for each other to reach a common barrier point before proceeding.
