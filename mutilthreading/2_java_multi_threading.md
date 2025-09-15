@@ -218,5 +218,7 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
         - newScheduledThreadPool(corePoolSize) => creates a scheduled thread pool of passed size.
         - newCachedThreadPool() => creates a thread pool that creats threads as per needed and terminates threads after a certain timeout (60 seconds) when not in use.
 
-https://www.youtube.com/watch?v=4aYvLz4E1Ts
-@ 3.15.07
+### CountDownLatch
+- So Executor framework in Java doesn't have any method which will allow the main thread to wait for all executors to complete
+- CountDownLatch helps to solve this problem.
+- **Note**: Once the countDownLatch count reaches zero it cannot be reset. Therefore same countDownLatch object cannot be used again.
