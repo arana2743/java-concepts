@@ -226,3 +226,17 @@ https://www.youtube.com/watch?v=4aYvLz4E1Ts
 ### CyclicBarrier
 - Unlike CountDownLatch, CyclicBarrier can be reused. Once all threads have reached the barrier and are released, the barrier resets, allowing for subsequent synchronization points in a multi-stage process.
 - CyclicBarrier in Java is a synchronization aid that allows a set of threads to wait for each other to reach a common barrier point before proceeding.
+
+
+### CompletableFuture
+- is used to handle asynchronous programming or non-blocking program execution.
+- available in `java.util.concurrent` package
+- some method:
+    - CompletableFuture.supplyAsync(Supplier supplier)
+    - CompletableFuture.get() -> allows to wait for the thread
+    - CompletableFuture.getNow(valueIfAbsent) -> returns result if completed otherwise return valueIfAbsent
+    - CompletableFuture.allOf(future1, future2) -> will combine result (completion status and not exact result of futures) of future1 and future2
+    - join() -> will wait on future completion
+- By default, CompletableFuture tasks often run on Daemon threads due to use of `ForkJoinPool.commonPool`
+- You can control the thread type by providing the custom executor service.
+- The CompletableFuture task itself doesn't dictate whether it's a Daemon thread or User thread.
